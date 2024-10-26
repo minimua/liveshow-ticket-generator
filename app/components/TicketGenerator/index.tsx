@@ -4,19 +4,27 @@
 import { useState } from 'react'
 import { TicketForm } from './TicketForm'
 import { ImagePreview } from './ImagePreview'
+import { TicketData } from './types'  // 添加这行
 
-interface TicketData {
-  entryType: string
-  title: string
-  datetime: string
-  venue: string
-  price: string
-  area: string
-  seat: string
-  ticketNumber: string
-}
+// 删除当前文件中的 TicketData 接口定义
 
-// 定义默认值
+// 其余代码保持不变
+
+// interface TicketData {
+//   entryType: "stand" | "field";
+//   title: string
+//   datetime: string
+//   venue: string
+//   price: string
+//   area: string
+//   row: string    // 添加
+//   seat: string
+//   no: string     // 添加
+//   ticketNo: string  // 添加
+//   ticketNumber: string
+// }
+
+// 更新默认值
 const defaultTicketData: TicketData = {
   entryType: 'stand',
   title: '',
@@ -24,7 +32,10 @@ const defaultTicketData: TicketData = {
   venue: '',
   price: '',
   area: '',
+  row: '',      // 添加
   seat: '',
+  no: '',       // 添加
+  ticketNo: '', // 添加
   ticketNumber: ''
 }
 

@@ -10,4 +10,13 @@ export interface TicketData {
     price: string                // 票价
     no: string                   // 主券No
     ticketNo: string             // 主券Ticket No
+    ticketNumber: string
   }
+
+
+export interface Template {
+  id: string
+  name: string
+  description: string
+  src: string
+}
