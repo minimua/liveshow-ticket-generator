@@ -3,7 +3,6 @@
 
 import { useState } from 'react'
 import { TicketForm } from './TicketForm'
-import { ImagePreview } from './ImagePreview'
 import { TicketData } from './types'  // 添加这行
 
 // 删除当前文件中的 TicketData 接口定义

@@ -1,16 +1,16 @@
 // app/utils/fonts.ts
-import { registerFont } from 'canvas'
+import { GlobalFonts } from '@napi-rs/canvas'
 import path from 'path'
 
 export function registerFonts(): void {
   try {
-    registerFont(
+    GlobalFonts.registerFromPath(
       path.join(process.cwd(), 'public', 'fonts', 'SourceHanSansCN-Regular.ttf'),
-      { family: 'SourceHanSans' }
+      'SourceHanSans'
     )
-    registerFont(
+    GlobalFonts.registerFromPath(
       path.join(process.cwd(), 'public', 'fonts', 'SourceHanSansCN-Bold.ttf'),
-      { family: 'SourceHanSans', weight: 'bold' }
+      'SourceHanSans Bold'
     )
     console.log('Fonts registered successfully')
   } catch (error) {
