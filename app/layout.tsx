@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: '演唱会门票生成器',
-  description: '一个简单的演唱会门票生成工具',
+  title: '我是一张纸质票',
+  description: '我是一张纸质票',
 }
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN">
-      <body className="min-h-screen bg-gray-50">{children}</body>
+      <body className="min-h-screen bg-gray-800">{children}</body>
     </html>
   )
 }

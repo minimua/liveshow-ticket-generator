@@ -68,51 +68,64 @@ export function TicketForm({ ticketData, setTicketData }: TicketFormProps) {
         />
       </div>
 
+   
       <div className="grid grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium mb-1 text-gray-700">区域</label>
-          <input
-            type="text"
-            name="area"
-            value={ticketData.area}
-            onChange={handleChange}
-            placeholder="xx区"
-            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
-          />
+          <div className="relative">
+            <input
+              type="text"
+              name="area"
+              value={ticketData.area}
+              onChange={handleChange}
+              placeholder="请输入"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">区</span>
+          </div>
         </div>
         <div>
           <label className="block text-sm font-medium mb-1 text-gray-700">排</label>
-          <input
-            type="text"
-            name="row"
-            value={ticketData.row}
-            onChange={handleChange}
-            placeholder="xx排"
-            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
-          />
+          <div className="relative">
+            <input
+              type="text"
+              name="row"
+              value={ticketData.row}
+              onChange={handleChange}
+              placeholder="请输入"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">排</span>
+          </div>
         </div>
         <div>
           <label className="block text-sm font-medium mb-1 text-gray-700">座号</label>
-          <input
-            type="text"
-            name="seat"
-            value={ticketData.seat}
-            onChange={handleChange}
-            placeholder="xx号"
-            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
-          />
+          <div className="relative">
+            <input
+              type="text"
+              name="seat"
+              value={ticketData.seat}
+              onChange={handleChange}
+              placeholder="请输入"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">号</span>
+          </div>
         </div>
       </div>
 
       <div>
         <label className="block text-sm font-medium mb-1 text-gray-700">票价</label>
-        <input
-          type="number"
-          name="price"
-          value={ticketData.price}
-          onChange={handleChange}
-          className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
-        />
+        <div className="relative">
+          <input
+            type="number"
+            name="price"
+            value={ticketData.price}
+            onChange={handleChange}
+            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+          />
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">元</span>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
