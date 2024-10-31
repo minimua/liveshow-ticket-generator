@@ -53,7 +53,7 @@ export const TICKET_TEMPLATES = [
   {
     id: 'template2',
     name: '模板二',
-    description: '通用模板正面-大绿紫色',
+    description: '通用模板正面-大麦紫色',
     src: '/templates/template2.png',
     textConfig: {
       // 复制 template1 的配置并根据需要调整

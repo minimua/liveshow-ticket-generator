@@ -47,7 +47,7 @@ const TICKET_TEMPLATES = [
 ] as const
 
 export default function TicketGenerator() {
-  const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null)
+  const [selectedTemplate, setSelectedTemplate] = useState<string>(TICKET_TEMPLATES[0].id)
   const [ticketData, setTicketData] = useState<TicketData>(defaultTicketData)
   const [isGenerating, setIsGenerating] = useState(false)
 
@@ -112,6 +112,7 @@ export default function TicketGenerator() {
               speed={500}
               slidesToShow={1}
               slidesToScroll={1}
+              initialSlide={0}
               afterChange={(index) => setSelectedTemplate(TICKET_TEMPLATES[index].id)}
               className="mb-4"
             >

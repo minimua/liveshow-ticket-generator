@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.58",
+    "@types/react-datepicker": "^7.0.0",
     "date-fns": "^4.1.0",
     "liveshow-ticket-generator": "file:",
     "lucide-react": "^0.453.0",
     "next": "14.1.0",
     "react": "^18.2.0",
+    "react-datepicker": "^7.5.0",
     "react-dom": "18.2.0",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1"

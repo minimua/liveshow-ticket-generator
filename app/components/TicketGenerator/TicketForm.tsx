@@ -2,6 +2,8 @@
 'use client'
 
 import { TicketData } from './types'
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 interface TicketFormProps {
   ticketData: TicketData
@@ -47,12 +49,21 @@ export function TicketForm({ ticketData, setTicketData }: TicketFormProps) {
 
       <div>
         <label className="block text-sm font-medium mb-1 text-gray-700">演出时间</label>
-        <input
-          type="datetime-local"
-          name="datetime"
-          value={ticketData.datetime}
-          onChange={handleChange}
+        <DatePicker
+          selected={ticketData.datetime ? new Date(ticketData.datetime) : null}
+          onChange={(date: Date | null) => {
+            if (date) {
+              setTicketData(prev => ({
+                ...prev,
+                datetime: date.toISOString().slice(0, 16)
+              }))
+            }
+          }}
+          showTimeSelect
+          timeIntervals={1}
+          dateFormat="yyyy-MM-dd HH:mm"
           className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+          placeholderText="选择日期和时间"
         />
       </div>
 
