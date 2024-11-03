@@ -2,13 +2,19 @@
 'use client'
 
 import { TicketData } from './types'
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
+import { zhCN } from 'date-fns/locale'
+import { TextField } from '@mui/material'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
+
+
 
 interface TicketFormProps {
   ticketData: TicketData
   setTicketData: React.Dispatch<React.SetStateAction<TicketData>>
 }
+
 
 export function TicketForm({ ticketData, setTicketData }: TicketFormProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -47,25 +53,53 @@ export function TicketForm({ ticketData, setTicketData }: TicketFormProps) {
         />
       </div>
 
+    
       <div>
         <label className="block text-sm font-medium mb-1 text-gray-700">演出时间</label>
-        <DatePicker
-          selected={ticketData.datetime ? new Date(ticketData.datetime) : null}
-          onChange={(date: Date | null) => {
-            if (date) {
-              setTicketData(prev => ({
-                ...prev,
-                datetime: date.toISOString().slice(0, 16)
-              }))
-            }
-          }}
-          showTimeSelect
-          timeIntervals={1}
-          dateFormat="yyyy-MM-dd HH:mm"
-          className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
-          placeholderText="选择日期和时间"
-        />
+        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={zhCN}>
+          <DateTimePicker
+            value={ticketData.datetime ? new Date(ticketData.datetime) : null}
+            onChange={(date: Date | null) => {
+              if (date) {
+                setTicketData(prev => ({
+                  ...prev,
+                  datetime: date.toISOString()
+                }))
+              }
+            }}
+            ampm={false}
+            format="yyyy年MM月dd日 HH:mm"
+            slotProps={{
+              textField: {
+                fullWidth: true,
+                size: "medium",
+                className: "w-full bg-white",
+                sx: {
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: '#E5E7EB',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#3B82F6',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#3B82F6',
+                      borderWidth: '2px',
+                    }
+                  },
+                  '& .MuiInputBase-input': {
+                    padding: '0.5rem 0.75rem',
+                    fontSize: '1rem',
+                    lineHeight: '1.5rem',
+                    color: '#1F2937'
+                  }
+                }
+              }
+            }}
+          />
+        </LocalizationProvider>
       </div>
+
 
       <div>
         <label className="block text-sm font-medium mb-1 text-gray-700">场馆</label>
