@@ -6,7 +6,7 @@ import { Toolbar } from './Toolbar';
 import { Sidebar } from './Sidebar';
 import Canvas from './Canvas';
 import { PropertyPanel } from './PropertyPanel';
-import { EditorElement } from '@/app/types/editor';
+import { EditorElement, ImageElement, TextElement, TicketLineElement } from '@/app/types/editor';
 
 export default function EditorWorkspace() {
   const [activePage, setActivePage] = useState<'front' | 'back'>('front');
@@ -18,9 +18,11 @@ export default function EditorWorkspace() {
     // TODO: 实现导出功能
   };
 
+  type EditorElement = TextElement | ImageElement | TicketLineElement; // 确保包含所有元素类型
+
   const handleElementUpdate = (elementId: string, updates: Partial<EditorElement>) => {
     setElements(elements.map(el => 
-      el.id === elementId ? { ...el, ...updates } : el
+      el.id === elementId ? { ...el, ...updates } as EditorElement : el // 使用类型断言
     ));
   };
 
